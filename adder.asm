@@ -29,7 +29,7 @@ _start:
 	mov edx, 5
 	int 80h
 
-	mov eax, 5 ;Print seocnd prompt
+	mov eax, 4 ;Print second prompt
 	mov ebx, 1
 	mov ecx, enterSecond
 	mov edx, lenEnterSecond
@@ -48,7 +48,13 @@ _start:
 	sub eax, '0'
 	mov [ans], eax
 
-	mov eax, 4
+	mov eax, 4 ;Print response prompt
+	mov ebx, 1
+	mov ecx, resMsg
+	mov edx, lenResMsg
+	int 80h
+
+	mov eax, 4 ;Print ans
 	mov ebx, 1
 	mov ecx, ans
 	mov edx, 16
