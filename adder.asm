@@ -29,3 +29,30 @@ _start:
 	mov edx, 5
 	int 80h
 
+	mov eax, 5 ;Print seocnd prompt
+	mov ebx, 1
+	mov ecx, enterSecond
+	mov edx, lenEnterSecond
+	int 80h
+
+	mov eax, 3 ;Store num2
+	mov ebx, 2
+	mov ecx, num2
+	mov edx, 5
+	int 80h
+
+	mov eax, [num1]
+	sub eax, '0'
+	mov ebx, [num2]
+	add eax, ebx
+	sub eax, '0'
+	mov [ans], eax
+
+	mov eax, 4
+	mov ebx, 1
+	mov ecx, ans
+	mov edx, 16
+	int 80h
+
+	mov eax, 1
+	int 80h
